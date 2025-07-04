@@ -1,3 +1,9 @@
+#include "ClientSocket.h"
+
+
+#include <QObject>
+#include <QTcpSocket>
+
 ClientSocket::ClientSocket(QObject *parent) :
     QObject(parent), socket(new QTcpSocket(this)) {
     connect(socket, &QTcpSocket::readyRead, this, &ClientSocket::onReadyRead);

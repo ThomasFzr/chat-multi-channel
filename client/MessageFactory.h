@@ -1,3 +1,11 @@
+#pragma once
+
+
+#include <QByteArray>
+#include <QString>
+#include <QJsonObject>
+#include <QJsonDocument>
+
 class MessageFactory {
 public:
     static QByteArray createChatMessage(const QString &room, const QString &user, const QString &text) {

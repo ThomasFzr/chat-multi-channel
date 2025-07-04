@@ -1,3 +1,12 @@
+#include "ChatServer.h"
+
+#include <QTcpServer>
+#include <QTcpSocket>
+#include <QByteArray>
+#include <QString>
+#include <QJsonDocument>
+#include <QJsonObject>
+
 ChatServer::ChatServer(QObject *parent) :
     QObject(parent), server(new QTcpServer(this)) {
     connect(server, &QTcpServer::newConnection, this, &ChatServer::onNewConnection);
