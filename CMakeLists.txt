@@ -6,8 +6,6 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-set(CMAKE_PREFIX_PATH "/path/to/Qt") # Adjust your Qt path
-
 find_package(Qt6 COMPONENTS Core Widgets Network REQUIRED)
 
 # Server executable
@@ -27,6 +25,6 @@ add_executable(client
     client/ClientSocket.h
     client/MessageFactory.cpp
     client/MessageFactory.h
-    client/MainWindow.ui        # Add the .ui file here directly
+    client/MainWindow.ui
 )
 target_link_libraries(client Qt6::Core Qt6::Widgets Qt6::Network)
