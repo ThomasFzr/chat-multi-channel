@@ -27,6 +27,7 @@ private:
     QTcpServer *server;
     QMap<QTcpSocket*, QString> clients;
     QMap<QString, QList<QTcpSocket*>> rooms;
+    QMap<QString, QStringList> roomHistory;
 };
 
-#endif // CHATSERVER_H
+#endif

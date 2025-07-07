@@ -4,25 +4,59 @@
  <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
    <rect>
-    <x>0</x><y>0</y><width>400</width><height>300</height>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
+  <property name="windowTitle">
+   <string>Chat Multi-Salons</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QTextEdit" name="chatTextEdit"/>
+     <widget class="QListWidget" name="roomListWidget">
+      <property name="minimumWidth">
+       <number>150</number>
+      </property>
+      <property name="styleSheet">
+       <string>background-color: #23272A; color: #fff; border: none;</string>
+      </property>
+     </widget>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
+     <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QLineEdit" name="messageLineEdit"/>
-      </item>
-      <item>
-       <widget class="QPushButton" name="sendButton">
-        <property name="text">
-         <string>Envoyer</string>
+       <widget class="QListWidget" name="chatListWidget">
+        <property name="styleSheet">
+         <string>background-color: #2C2F33; color: #fff; border: none;</string>
         </property>
        </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="inputLayout">
+        <item>
+         <widget class="QLineEdit" name="messageLineEdit">
+          <property name="placeholderText">
+           <string>Écrire un message...</string>
+          </property>
+          <property name="styleSheet">
+           <string>background-color: #23272A; color: #fff; border-radius: 5px; padding: 6px;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="sendButton">
+          <property name="text">
+           <string>Envoyer</string>
+          </property>
+          <property name="styleSheet">
+           <string>background-color: #7289DA; color: #fff; border-radius: 5px; padding: 6px 16px;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </item>

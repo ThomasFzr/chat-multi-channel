@@ -1,8 +1,10 @@
 #pragma once
 
 #include <QMainWindow>
+#include <QMap>
+#include <QStringList>
 
-class ClientSocket;  // tu dois déclarer ta classe socket
+class ClientSocket;
 
 namespace Ui {
 class MainWindow;
@@ -18,9 +20,13 @@ public:
 
 private slots:
     void onSendClicked();
-    void onMessageReceived(const QString &msg); // 👈 ajoute cette déclaration
+    void onMessageReceived(const QString &msg);
 
 private:
     Ui::MainWindow *ui;
-    ClientSocket *clientSocket; // 👈 ajoute ce membre
+    ClientSocket *clientSocket;
+    QString currentRoom = "general";
+    QString currentUser = "user1";
+    QMap<QString, QStringList> roomMessages;
+    bool expectingHistory = false;
 };

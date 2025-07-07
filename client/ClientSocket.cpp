@@ -3,6 +3,8 @@
 
 #include <QObject>
 #include <QTcpSocket>
+#include <QJsonDocument>
+#include <QJsonObject>
 
 ClientSocket::ClientSocket(QObject *parent) :
     QObject(parent), socket(new QTcpSocket(this)) {
@@ -20,4 +22,32 @@ void ClientSocket::sendMessage(const QByteArray &msg) {
 void ClientSocket::onReadyRead() {
     QByteArray data = socket->readAll();
     emit messageReceived(QString::fromUtf8(data));
+}
+
+void ClientSocket::joinRoom(const QString &room, const QString &user) {
+    QJsonObject obj;
+    obj["type"] = "join";
+    obj["room"] = room;
+    obj["user"] = user;
+    QJsonDocument doc(obj);
+    socket->write(doc.toJson(QJsonDocument::Compact));
+}
+
+void ClientSocket::leaveRoom(const QString &room, const QString &user) {
+    QJsonObject obj;
+    obj["type"] = "leave";
+    obj["room"] = room;
+    obj["user"] = user;
+    QJsonDocument doc(obj);
+    socket->write(doc.toJson(QJsonDocument::Compact));
+}
+
+void ClientSocket::sendChatMessage(const QString &room, const QString &user, const QString &text) {
+    QJsonObject obj;
+    obj["type"] = "message";
+    obj["room"] = room;
+    obj["user"] = user;
+    obj["text"] = text;
+    QJsonDocument doc(obj);
+    socket->write(doc.toJson(QJsonDocument::Compact));
 }
