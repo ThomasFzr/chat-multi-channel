@@ -28,9 +28,7 @@ ChatApp est une application de communication en temps réel développée en **C+
 - **C++**
 - **Qt 5/6 (Qt Widgets & Qt Multimedia)**
 - **Qt Network** pour la communication client-serveur
-- **QAudioInput / QAudioOutput** pour le chat vocal
 - **QWebSocket** (si chat en temps réel via WebSocket)
-- **SQLite** (ou MySQL) pour la base de données
 - Architecture **MVC**
 
 ---
@@ -43,7 +41,7 @@ ChatApp est une application de communication en temps réel développée en **C+
 - CMake (si en dehors de Qt Creator)
 
 ### 📥 Étapes
-git clone https://github.com/ThomasFzr/Dev-dekstop
+git clone https://github.com/ThomasFzr/chat-multi-channel
 
 cd ChatApp 
 
@@ -68,30 +66,43 @@ make
 ```
 ### 📁 Structure du projet
 ```
-/ChatApp
-│
-├── src/
-│   ├── main.cpp
-│   ├── client/
-│   │   ├── ChatWindow.cpp / .h
-│   │   ├── LoginDialog.cpp / .h
-│   ├── admin/
-│   │   ├── AdminPanel.cpp / .h
-│   └── network/
-│       ├── ClientSocket.cpp / .h
-│
-├── assets/
-│   ├── icons/
-│   └── styles/
-│
-├── resources.qrc
-├── ChatApp.pro
-└── README.md
+ChatApp/
+├── CMakeLists.txt
+├── client/
+│   ├── Forms/
+│   │   └── client/
+│   │       └── MainWindow.ui
+│   ├── Header Files/
+│   │   └── client/
+│   │       ├── ClientSocket.h
+│   │       ├── MainWindow.h
+│   │       └── MessageFactory.h
+│   ├── Resources/
+│   │   └── client/
+│   │       └── resources.qrc
+│   └── Source Files/
+│       └── client/
+│           ├── ClientSocket.cpp
+│           ├── Main.cpp
+│           ├── MainWindow.cpp
+│           └── MessageFactory.cpp
+├── server/
+│   ├── Header Files/
+│   │   └── server/
+│   │       └── ChatServer.h
+│   └── Source Files/
+│       └── server/
+│           ├── ChatServer.cpp
+│           └── Main.cpp
 ```
 ###  **🧪 Fonctionnalités à venir**
 Notifications système
 
 Authentification à deux facteurs (2FA)
+
+messages privé
+
+chat vocal
 
 Système de rôles personnalisés
 
