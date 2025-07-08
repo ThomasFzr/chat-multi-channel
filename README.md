@@ -7,19 +7,16 @@ ChatApp est une application de communication en temps réel développée en **C+
 ## 🚀 Fonctionnalités principales
 
 ### Utilisateurs
-- Connexion avec authentification
-- Changement de statut (en ligne, occupé, absent)
+- Connexion utilisateur
 - Liste des salons disponibles
 - Rejoindre / Quitter un salon
-- Envoi de messages texte, images, vidéos
+- Envoi de messages texte
 - Consultation de l'historique des messages
-- Discussion audio en temps réel
 
 ### Administrateurs
-- Création / Suppression de salons
-- Mute, kick, ban des utilisateurs
+- Création / Suppression de salons (à venir)
+- ban des utilisateurs
 - Suppression de messages
-- Suppression de bots (même hors ligne)
 
 ---
 
