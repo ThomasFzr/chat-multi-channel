@@ -23,8 +23,8 @@ add_executable(client
     client/MainWindow.h
     client/ClientSocket.cpp
     client/ClientSocket.h
-    client/MessageFactory.cpp
-    client/MessageFactory.h
+
+
     client/MainWindow.ui
     client/resources.qrc
 )
