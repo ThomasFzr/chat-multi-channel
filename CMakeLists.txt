@@ -6,7 +6,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-find_package(Qt6 COMPONENTS Core Widgets Network REQUIRED)
+find_package(Qt6 COMPONENTS Core Widgets Network Svg REQUIRED)
 
 # Server executable
 add_executable(server
@@ -26,5 +26,6 @@ add_executable(client
     client/MessageFactory.cpp
     client/MessageFactory.h
     client/MainWindow.ui
+    client/resources.qrc
 )
-target_link_libraries(client Qt6::Core Qt6::Widgets Qt6::Network)
+target_link_libraries(client Qt6::Core Qt6::Widgets Qt6::Network Qt6::Svg)

@@ -16,23 +16,71 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QListWidget" name="roomListWidget">
-      <property name="minimumWidth">
-       <number>150</number>
-      </property>
-      <property name="styleSheet">
-       <string>background-color: #23272A; color: #fff; border: none;</string>
-      </property>
-     </widget>
+     <layout class="QVBoxLayout" name="roomLayout">
+      <item>
+       <widget class="QPushButton" name="createRoomButton">
+        <property name="text">
+         <string>Créer un salon</string>
+        </property>
+        <property name="styleSheet">
+         <string>background-color: #7289DA; color: #fff; border-radius: 5px; padding: 6px 16px;</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QListWidget" name="roomListWidget">
+        <property name="minimumWidth">
+         <number>150</number>
+        </property>
+        <property name="styleSheet">
+         <string>background-color: #23272A; color: #fff; border: none;</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="roleLabel">
+        <property name="text">
+         <string>Rôle : user</string>
+        </property>
+        <property name="styleSheet">
+         <string>color: #fff; font-weight: bold;</string>
+        </property>
+       </widget>
+      </item>
       <item>
        <widget class="QListWidget" name="chatListWidget">
         <property name="styleSheet">
          <string>background-color: #2C2F33; color: #fff; border: none;</string>
         </property>
        </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="banLayout">
+        <item>
+         <widget class="QLineEdit" name="banUserLineEdit">
+          <property name="placeholderText">
+           <string>Bannir un utilisateur (admin)</string>
+          </property>
+          <property name="styleSheet">
+           <string>background-color: #23272A; color: #fff; border-radius: 5px; padding: 6px;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="banUserButton">
+          <property name="text">
+           <string>Bannir</string>
+          </property>
+          <property name="styleSheet">
+           <string>background-color: #ff5555; color: #fff; border-radius: 5px; padding: 6px 16px;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item>
        <layout class="QHBoxLayout" name="inputLayout">

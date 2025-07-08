@@ -8,6 +8,8 @@
 #include <QList>
 #include <QString>
 #include <QByteArray>
+#include <QSet>
+#include <QJsonObject>
 
 class ChatServer : public QObject
 {
@@ -23,11 +25,15 @@ private slots:
 
 private:
     void broadcast(const QString &room, const QString &message);
+    void sendJson(QTcpSocket *client, const QJsonObject &obj);
 
     QTcpServer *server;
-    QMap<QTcpSocket*, QString> clients;
+    QMap<QTcpSocket*, QString> clients; // client -> room
+    QMap<QTcpSocket*, QString> clientUsers; // client -> username
     QMap<QString, QList<QTcpSocket*>> rooms;
     QMap<QString, QStringList> roomHistory;
+    QMap<QString, QString> userRoles;
+    QMap<QString, QSet<QString>> roomBans;
 };
 
 #endif
