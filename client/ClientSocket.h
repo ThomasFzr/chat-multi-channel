@@ -21,6 +21,7 @@ public:
 
 signals:
     void messageReceived(const QString &msg);
+    void connected();
 
 private slots:
     void onReadyRead();

@@ -26,6 +26,8 @@ private slots:
 private:
     void broadcast(const QString &room, const QString &message);
     void sendJson(QTcpSocket *client, const QJsonObject &obj);
+    void handleSingleMessage(QTcpSocket *client, const QJsonObject &obj);
+    void sendRoomList(QTcpSocket *client);
 
     QTcpServer *server;
     QMap<QTcpSocket*, QString> clients; // client -> room

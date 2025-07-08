@@ -27,7 +27,6 @@ public:
 private slots:
     void onSendClicked();
     void onMessageReceived(const QString &msg);
-    void onUserRoleChanged(const QString &newRole);
 
 private:
     void updateUserInterface();
@@ -36,17 +35,17 @@ private:
     Ui::MainWindow *ui;
     ClientSocket *clientSocket;
     QString currentRoom = "general";
-    QString currentUser = "user1";
+    QString currentUser;
     QMap<QString, QStringList> roomMessages;
     bool expectingHistory = false;
     QString currentRole = "user";
+    bool requestedAdminRole = false;
     QMap<QString, bool> roomBanStatus; // Track ban status per room
     
     // Widgets utilisateur
     QWidget *userWidget;
     QLabel *userIcon;
     QLabel *userNameLabel;
-    QComboBox *userRoleCombo;
     QPushButton *userSettingsButton;
     
     // Widgets admin pour gestion des rôles

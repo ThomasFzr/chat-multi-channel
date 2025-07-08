@@ -1,17 +1,22 @@
 #include "ClientSocket.h"
 
-
 #include <QObject>
 #include <QTcpSocket>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QDebug>
 
 ClientSocket::ClientSocket(QObject *parent) :
     QObject(parent), socket(new QTcpSocket(this)) {
     connect(socket, &QTcpSocket::readyRead, this, &ClientSocket::onReadyRead);
+    connect(socket, &QTcpSocket::connected, this, [this]() {
+        qDebug() << "CLIENT SOCKET: Connexion établie, émission du signal connected";
+        emit connected();
+    });
 }
 
 void ClientSocket::connectToServer(const QString &host, quint16 port) {
+    qDebug() << "CLIENT SOCKET: Tentative de connexion à" << host << ":" << port;
     socket->connectToHost(host, port);
 }
 
